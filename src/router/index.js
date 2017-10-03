@@ -7,9 +7,11 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Hello from '@/components/Hello';
 import AddProduct from '@/components/AddProduct';
 import ProductList from '@/components/ProductList';
+import navbar from '@/components/navbar';
 
 Vue.use(Router);
 Vue.use(BootstrapVue);
+Vue.component('navbar', navbar)
 
 export default new Router({
   routes: [

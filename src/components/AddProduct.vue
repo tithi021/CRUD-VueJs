@@ -2,27 +2,9 @@
   <div class="container">
     <b-container fluid>
 
-      <b-navbar toggleable="md" type="dark" variant="info">
-
-        <b-nav-toggle target="nav_collapse"></b-nav-toggle>
-
-        <img src="../assets/logo.png">
-
-        <b-navbar-brand href="/">Home</b-navbar-brand>
-
-        <b-collapse is-nav id="nav_collapse">
-
-          <!-- Right aligned nav items -->
-          <b-nav is-nav-bar class="ml-auto">
-            <b-nav is-nav-bar>
-              <b-nav-item href="#">Product List</b-nav-item>
-            </b-nav>
-          </b-nav>
-
-        </b-collapse>
-      </b-navbar>
-
       <!-- navbar-1.vue -->
+      <navbar/>
+
       <!-- jumbotron -->
       <b-jumbotron header="Add New Product"></b-jumbotron>
       <!-- Add New Product Form  -->
@@ -73,7 +55,7 @@
           </b-col>
           <b-col sm="3">
             <b-button type="submit" variant="primary">Submit</b-button>
-            <b-button type="reset" variant="secondary">Reset</b-button>
+            <b-button type="reset" variant="secondary" v-on:click="cancel">Reset</b-button>
           </b-col>
         </b-row>
       </b-form>
@@ -99,7 +81,11 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      alert(JSON.stringify(this.form));
+      this.$emit('NewProduct', this.addTodo);
+      window.location.replace('#/');
+    },
+    cancel: function() {
+      this.form = null;
     }
   }
 };

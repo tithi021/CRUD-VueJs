@@ -1,5 +1,5 @@
 <template>
-  <b-table striped hover :items="items">
+  <b-table class="container" striped hover :items="items">
   </b-table>
 </template>
 
@@ -15,7 +15,10 @@ const items = [
 export default {
   data() {
     return {
-      items: items
+      items: items,
+      NewProduct(data) {
+        console.log(data);
+      }
     }
   }
 }
