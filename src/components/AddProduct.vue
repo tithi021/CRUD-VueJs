@@ -35,7 +35,7 @@
             <label>Product Price:</label>
           </b-col>
           <b-col sm="9">
-            <b-form-input type="text" v-model="form.price" required placeholder="Product Price"></b-form-input>
+            <b-form-input type="number" v-model="form.price" required placeholder="Product Price"></b-form-input>
           </b-col>
         </b-row>
 
@@ -63,8 +63,10 @@
   </div>
 </template>
 <script>
+
 export default {
   data() {
+
     return {
       form: {
         name: '',
@@ -81,7 +83,7 @@ export default {
   methods: {
     onSubmit(evt) {
       evt.preventDefault();
-      this.$emit('NewProduct', this.addTodo);
+      this.$bus.$emit('NewProduct', this.form);
       window.location.replace('#/');
     },
     cancel: function() {
@@ -94,9 +96,5 @@ export default {
 <style>
 .container {
   width: 80%;
-}
-
-img {
-  height: 50px;
 }
 </style>

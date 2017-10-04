@@ -13,6 +13,15 @@ Vue.use(Router);
 Vue.use(BootstrapVue);
 Vue.component('navbar', navbar)
 
+const EventBus = new Vue();
+Object.defineProperties(Vue.prototype, {
+  $bus: {
+    get: function () {
+      return EventBus
+    }
+  }
+});
+
 export default new Router({
   routes: [
     {
